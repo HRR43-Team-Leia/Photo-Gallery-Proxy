@@ -2,19 +2,19 @@ const ejs = require('ejs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 4000;
-const photoGallery = express();
+const airbnbEx= express();
 
-photoGallery.use(express.static('public'));
+airbnbEx.use(express.static('public'));
 
-photoGallery.use(bodyParser.json());
-photoGallery.engine('html', ejs.renderFile);
+airbnbEx.use(bodyParser.json());
+airbnbEx.engine('html', ejs.renderFile);
 
-photoGallery.get('/:id', (req, res) => {
+airbnbEx.get('/:id', (req, res) => {
   res.render('../public/index.html');
 });
-photoGallery.set('view engine', 'html');
+airbnbEx.set('view engine', 'html');
 
 
-photoGallery.listen(port, () => {
+airbnbEx.listen(port, () => {
   console.log(`Proxy Server Listening on Port ${port} `)
 })
